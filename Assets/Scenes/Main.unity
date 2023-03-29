@@ -1866,8 +1866,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 900
-  field of view: 80
+  far clip plane: 5000
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4947,7 +4947,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2278be29eab32904c81e9bf0555dd397, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
