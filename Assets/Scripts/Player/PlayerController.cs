@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour {
         camParent = cam.parent;
         rot = startRotation;
         lastJumpTime = Time.realtimeSinceStartup;
+        snapOrientation = true;
         //init animation variables
         animator = GameObject.Find("Astronaut").GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
@@ -117,7 +118,7 @@ public class PlayerController : MonoBehaviour {
             }
             Physics.gravity = gravity;// set unity gravity
             if (strongest != null) {
-                print(strongest.transform.name + ": " + strongestGrav);
+                //print(strongest.transform.name + ": " + strongestGrav);
                 //code for orienting the strongest gravity planet
                 Vector3 vec = (strongest.transform.position-transform.position).normalized;//vector from player to planet
                 Quaternion finalRot = Quaternion.FromToRotation(transform.up,-vec)*transform.rotation;//goal rotation

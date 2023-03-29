@@ -29,7 +29,6 @@ public class UIController : MonoBehaviour {
         isPaused = false;
         teleportMenuOpen = false;
         canvas.SetActive(true);
-        //  menuButton.gameObject.SetActive(true);
         pauseOverlay.gameObject.SetActive(true);
         pauseText.gameObject.SetActive(true);
         crosshair.gameObject.SetActive(true);
@@ -48,6 +47,7 @@ public class UIController : MonoBehaviour {
                 //lock or unlock cursor
                 if (isPaused) { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; }
                 else { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; }
+                
                 //set ui elements active or in-active
                 SetRectActive(pauseOverlay, isPaused);
                 SetRectActive(pauseText, isPaused);

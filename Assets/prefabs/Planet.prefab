@@ -70,7 +70,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1954943569503058396}
-  - component: {fileID: 1954943569503058370}
   - component: {fileID: 1954943569503058397}
   m_Layer: 6
   m_Name: Planet
@@ -95,19 +94,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1954943569503058370
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954943569503058399}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1954943569503058397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +124,7 @@ GameObject:
   - component: {fileID: 1954943571056428446}
   - component: {fileID: 1954943571056428441}
   - component: {fileID: 1954943571056428440}
+  - component: {fileID: 9126741926190006145}
   m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
@@ -208,6 +195,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9126741926190006145
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954943571056428437}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: 09f5f5a295c1cd34a9ed4e7999c395f2, type: 3}
 --- !u!1 &1955291918570992837
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,7 +5474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1958629899925045021
 Transform:
   m_ObjectHideFlags: 0
