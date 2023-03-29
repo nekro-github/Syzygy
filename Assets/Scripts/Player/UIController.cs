@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour {
     public GameObject canvas;
+    //  public RectTransform menuButton;
     public RectTransform pauseOverlay;
     public RectTransform pauseText;
     public RectTransform crosshair;
@@ -27,6 +29,7 @@ public class UIController : MonoBehaviour {
         isPaused = false;
         teleportMenuOpen = false;
         canvas.SetActive(true);
+        //  menuButton.gameObject.SetActive(true);
         pauseOverlay.gameObject.SetActive(true);
         pauseText.gameObject.SetActive(true);
         crosshair.gameObject.SetActive(true);
@@ -49,6 +52,7 @@ public class UIController : MonoBehaviour {
                 SetRectActive(pauseOverlay, isPaused);
                 SetRectActive(pauseText, isPaused);
                 SetRectActive(crosshair, !isPaused);
+                //  SetRectActive(menuButton, isPaused);
             } else {
                 teleportMenuOpen = false;
                 SetRectActive(pauseOverlay, teleportMenuOpen);// set ui elements active or in-active
@@ -113,6 +117,11 @@ public class UIController : MonoBehaviour {
 
             count++;//                                                                                    increments "count"
         }
+    }
+    
+    public void ToMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     void SetRectActive(RectTransform rect, bool active) {//more efficient way of hiding an object than transform.SetActive()
