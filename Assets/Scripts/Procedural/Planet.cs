@@ -2,14 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
-
 public class Planet : MonoBehaviour {
     //variables for calculating gravity, by default has earth mass and radius
     public ScientificNumber mass = Constants.earthMass.Copy();
     public ScientificNumber radius = Constants.earthRadius.Copy();
     public float Scale;
-    private float heightMult = 7f;
+    private float range = 5f;
     void OnValidate() {
         //handles scaling the object live in the inspector
         if (transform.parent != null) {
@@ -31,13 +29,12 @@ public class Planet : MonoBehaviour {
         for (int i = 0; i < vertices.Length; i++)
         {
             Vector3 vert = vertices[i];
-            float noiseHeight = 5f;
-            float value = PerlinNoise4D(vert.x*heightMult, vert.y*heightMult, vert.z*heightMult,w);
-            vertices[i] = vert.normalized * (vert.magnitude+((value*2-2)*noiseHeight)/Scale);
+            float mult = 6f;
+            float value = PerlinNoise4D(vert.x*mult, vert.y*mult, vert.z*mult,w);
+            vertices[i] = vert.normalized * (vert.magnitude+((value*2-2)*range)/Scale);
         }
         mesh.vertices = vertices;
         meshCollider.sharedMesh = mesh;
-        
     }
     // Makes 3D Perlin Noise to be projected on to the planets by combining axis of 2D Perlin Noises and their opposites
     public static float PerlinNoise3D(float x, float y, float z)

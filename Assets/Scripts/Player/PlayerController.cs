@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     private Transform camParent;
     [SerializeField] private Vector3 startRotation = new Vector3(0,0,0);
     [SerializeField] private float speed = 5;
-    [SerializeField] private float sprintSpeed = 10;
+    [SerializeField] private float sprintSpeed = 6.5f;
     private float speedBeforeJump = 5;
     [SerializeField] private float jumpForce = 7;
     //private variables
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     private bool onGround = false;
     private double lastJumpTime;
     [SerializeField] private float maxOrientateRotateDegrees = 1.25f;
-    [HideInInspector] public bool snapOrientation = true;
+    [HideInInspector] public bool snapOrientation = false;
     [HideInInspector] public bool Orient = true;
 
     private float InputHorizontal = 0;
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     //scripts on self
     private Rigidbody rb;
     private UIController controller;
+    private Vector3 gravity = Vector3.zero;
     //animator variables
     Animator animator;
     int isWalkingHash;
@@ -44,8 +45,8 @@ public class PlayerController : MonoBehaviour {
         controller = GetComponent<UIController>();
         camParent = cam.parent;
         rot = startRotation;
-        lastJumpTime = Time.realtimeSinceStartup;
         snapOrientation = true;
+        lastJumpTime = Time.realtimeSinceStartup;
         //init animation variables
         animator = GameObject.Find("Astronaut").GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour {
             if (onGround) {
                 if (Input.GetKeyDown("space")) {
                     //if player is on the ground and presses space add a force upwards
-                    rb.AddForce(transform.up*jumpForce,ForceMode.Impulse);
+                    rb.AddForce(transform.up*jumpForce*Mathf.Pow(4.5f, gravity.magnitude/9.81f-1),ForceMode.Impulse);
                     lastJumpTime = Time.realtimeSinceStartup;
                     onGround = false;
                     speedBeforeJump = ((Input.GetKey(KeyCode.LeftShift)) ? sprintSpeed : speed);//saves speed player was moving before jump
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour {
 
         //orienting
         if (Orient) {
-            Vector3 gravity = Vector3.zero;
+            gravity = Vector3.zero;
             Planet strongest = null;
             float strongestGrav = 0;
             Planet[] planets = FindObjectsOfType(typeof(Planet)) as Planet[];
@@ -123,7 +124,7 @@ public class PlayerController : MonoBehaviour {
                 Vector3 vec = (strongest.transform.position-transform.position).normalized;//vector from player to planet
                 Quaternion finalRot = Quaternion.FromToRotation(transform.up,-vec)*transform.rotation;//goal rotation
                 if (!snapOrientation) { transform.rotation = Quaternion.RotateTowards(transform.rotation, finalRot, maxOrientateRotateDegrees); }// regular turning only a few degrees at a time
-                else transform.rotation = Quaternion.RotateTowards(transform.rotation, finalRot, 360); snapOrientation = false;// instead of slowling turning to the direction of the planets gravitational field it will snap to it
+                else { transform.rotation = Quaternion.RotateTowards(transform.rotation, finalRot, 1024); snapOrientation = false; }// instead of slowling turning to the direction of the planets gravitational field it will snap to it
             }
         } else Physics.gravity = Vector3.up*-9.81f;
     }
