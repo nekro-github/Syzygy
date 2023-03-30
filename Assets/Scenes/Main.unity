@@ -154,7 +154,7 @@ Transform:
   - {fileID: 1870880666}
   - {fileID: 396776989}
   m_Father: {fileID: 1759921419}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &19097785
 GameObject:
@@ -1047,14 +1047,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382834730}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 29.6, y: -0.2, z: 58.915154}
+  m_LocalPosition: {x: 0, y: 45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 904224312}
   - {fileID: 2100304860}
   - {fileID: 1642974645}
   m_Father: {fileID: 1759921419}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &388107114
 GameObject:
@@ -4941,7 +4941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1759921419}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1695518289
 GameObject:
@@ -5285,13 +5285,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759921418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.645973, y: 44.60392, z: -58.915154}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6330623326639294738}
-  - {fileID: 382834736}
   - {fileID: 18386508}
   - {fileID: 1680827485}
+  - {fileID: 6330623326639294738}
+  - {fileID: 382834736}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11409,7 +11409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3950837478559785316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.645973, y: -44.60392, z: 58.915154}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 80, y: 80, z: 80}
   m_Children:
   - {fileID: 5742756785481720795}
@@ -11420,7 +11420,7 @@ Transform:
   - {fileID: 4267573764644885}
   - {fileID: 361538998}
   m_Father: {fileID: 1759921419}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9012314534153560168
 MeshFilter:
