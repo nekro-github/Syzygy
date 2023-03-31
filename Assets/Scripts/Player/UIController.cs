@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour {
     //  public RectTransform menuButton;
     public RectTransform pauseOverlay;
     public RectTransform pauseText;
+    public RectTransform mainMenuButton;
     public RectTransform crosshair;
     [Space]
     public RectTransform teleporterMenu;
@@ -33,11 +34,13 @@ public class UIController : MonoBehaviour {
         pauseText.gameObject.SetActive(true);
         crosshair.gameObject.SetActive(true);
         teleporterMenu.gameObject.SetActive(true);
+        mainMenuButton.gameObject.SetActive(true);
         SetRectActive(pauseOverlay, false);
         SetRectActive(pauseText, false);
         SetRectActive(crosshair, true);
         SetRectActive(teleporterMenu, false);
-        Cursor.lockState = CursorLockMode.Locked;
+        SetRectActive(mainMenuButton, false);
+        Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
     }
     void Update() {
         //when player presses escape it will unlock the cursor, show the pause screen and disable the crosshair
@@ -52,12 +55,14 @@ public class UIController : MonoBehaviour {
                 SetRectActive(pauseOverlay, isPaused);
                 SetRectActive(pauseText, isPaused);
                 SetRectActive(crosshair, !isPaused);
+                SetRectActive(mainMenuButton, isPaused);
                 //  SetRectActive(menuButton, isPaused);
             } else {
                 teleportMenuOpen = false;
                 SetRectActive(pauseOverlay, teleportMenuOpen);// set ui elements active or in-active
                 SetRectActive(teleporterMenu, teleportMenuOpen);
                 SetRectActive(crosshair, !teleportMenuOpen);
+                SetRectActive(mainMenuButton, !teleportMenuOpen);
                 Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;// locks cursor
             }
         }
