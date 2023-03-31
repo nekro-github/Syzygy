@@ -7,7 +7,8 @@ public class Planet : MonoBehaviour {
     public ScientificNumber mass = Constants.earthMass.Copy();
     public ScientificNumber radius = Constants.earthRadius.Copy();
     public float Scale;
-    private float range = 5f;
+    private float heightMult = 5f;
+    private float noiseScale = 7f;
     void OnValidate() {
         //handles scaling the object live in the inspector
         if (transform.parent != null) {
@@ -29,9 +30,8 @@ public class Planet : MonoBehaviour {
         for (int i = 0; i < vertices.Length; i++)
         {
             Vector3 vert = vertices[i];
-            float mult = 6f;
-            float value = PerlinNoise4D(vert.x*mult, vert.y*mult, vert.z*mult,w);
-            vertices[i] = vert.normalized * (vert.magnitude+((value*2-2)*range)/Scale);
+            float value = PerlinNoise4D(vert.x*noiseScale, vert.y*noiseScale, vert.z*noiseScale,w);
+            vertices[i] = vert.normalized * (vert.magnitude+((value*2-2)*heightMult)/Scale);
         }
         mesh.vertices = vertices;
         meshCollider.sharedMesh = mesh;

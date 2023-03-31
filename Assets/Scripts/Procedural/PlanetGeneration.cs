@@ -17,7 +17,8 @@ public class PlanetGeneration : MonoBehaviour
         {
             // Create the planets in a random range
             GameObject planet = Instantiate(prefab, new Vector3(Random.Range(-range, range), Random.Range(-range, range), Random.Range(-range, range)), Quaternion.identity,transform.parent);
-            
+            //randomize size of planets
+            (planet.GetComponent(typeof(Planet)) as Planet).Scale = Random.Range(30, 60);
             // Get the material for the planet generated and assign a random color to it
             Material planetMaterial = planet.transform.GetChild(0).GetComponent<MeshRenderer>().material;
             planetMaterial.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
