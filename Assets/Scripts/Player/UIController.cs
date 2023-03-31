@@ -56,7 +56,6 @@ public class UIController : MonoBehaviour {
                 SetRectActive(pauseText, isPaused);
                 SetRectActive(crosshair, !isPaused);
                 SetRectActive(mainMenuButton, isPaused);
-                //  SetRectActive(menuButton, isPaused);
             } else {
                 teleportMenuOpen = false;
                 SetRectActive(pauseOverlay, teleportMenuOpen);// set ui elements active or in-active
@@ -73,6 +72,7 @@ public class UIController : MonoBehaviour {
         SetRectActive(pauseOverlay, teleportMenuOpen);// set ui elements active or in-active
         SetRectActive(teleporterMenu, teleportMenuOpen);
         SetRectActive(crosshair, !teleportMenuOpen);
+        SetRectActive(mainMenuButton, !teleportMenuOpen);
         Cursor.lockState = CursorLockMode.None; Cursor.visible = true;// unlocks cursor
 
         //find all unlocked teleporters and make a button on the screen for it
@@ -117,6 +117,7 @@ public class UIController : MonoBehaviour {
                 SetRectActive(pauseOverlay, teleportMenuOpen);//                                          set ui elements active or in-active
                 SetRectActive(teleporterMenu, teleportMenuOpen);//                                        ^
                 SetRectActive(crosshair, !teleportMenuOpen);//                                            ^
+                SetRectActive(mainMenuButton, !teleportMenuOpen);//                                       ^
                 Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;//                       locks cursor
             });
 
