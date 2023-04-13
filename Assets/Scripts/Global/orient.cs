@@ -4,7 +4,10 @@ using UnityEngine;
 public class orient : MonoBehaviour {
     public GameObject planet;
     public float offsetDown = 0.15f;
-    void Start() {
+    void Awake() {
+        Orient();
+    }
+    void Orient() {
         if (planet == null) { print("cannot orient: " + name); return; }
         //gets planet direction
         Vector3 vec = (planet.transform.position-transform.position).normalized;
@@ -19,7 +22,5 @@ public class orient : MonoBehaviour {
                 transform.position+=ray*(hit.distance-transform.lossyScale.y+offsetDown);
             }
         }
-        
-        
     }
 }
