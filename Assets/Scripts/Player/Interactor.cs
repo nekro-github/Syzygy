@@ -29,6 +29,7 @@ public class Interactor : MonoBehaviour {
                     Interactable interactable = colliders[i].GetComponent<Interactable>();
                     if (interactable == null) return;
                     if (interactable.interactEvent) interactable.Interact(this);
+                    return;
                 }
             }
         }
