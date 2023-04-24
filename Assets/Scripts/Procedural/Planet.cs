@@ -9,6 +9,9 @@ public class Planet : MonoBehaviour {
     public float Scale;
     private float heightMult = 5f;
     private float noiseScale = 7f;
+    public GameObject prefab;
+    
+    
     void OnValidate() {
         //handles scaling the object live in the inspector
         if (transform.parent != null) {
@@ -20,6 +23,7 @@ public class Planet : MonoBehaviour {
 
     void Awake()
     {
+        
         GameObject child = transform.GetChild(0).gameObject;
         MeshFilter meshFilter = child.GetComponent(typeof(MeshFilter)) as MeshFilter;
         MeshCollider meshCollider = child.GetComponent(typeof(MeshCollider)) as MeshCollider;
@@ -35,6 +39,18 @@ public class Planet : MonoBehaviour {
         }
         mesh.vertices = vertices;
         meshCollider.sharedMesh = mesh;
+        int num = 20;
+        for (int j = 0; j < num; j++)
+        {
+            Vector3 vert = vertices[Mathf.RoundToInt(j*vertices.Length/num)];
+            GameObject interactable = Instantiate(prefab, transform.position + vert*Scale*0.5f + vert.normalized, Quaternion.identity, transform);
+            OrientParent thing = interactable.GetComponent(typeof(OrientParent)) as OrientParent;
+            interactable.transform.localScale /= Scale;
+            thing.planet = gameObject;
+            thing.Orient();
+        }
+        
+        
     }
     // Makes 3D Perlin Noise to be projected on to the planets by combining axis of 2D Perlin Noises and their opposites
     public static float PerlinNoise3D(float x, float y, float z)

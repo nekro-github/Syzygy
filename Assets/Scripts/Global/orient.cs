@@ -7,8 +7,9 @@ public class orient : MonoBehaviour {
     void Awake() {
         Orient();
     }
-    void Orient() {
-        if (planet == null) { print("cannot orient: " + name); return; }
+    public void Orient() {
+        //if (planet == null) print("cannot orient: " + name);
+        if (planet == null) return;
         //gets planet direction
         Vector3 vec = (planet.transform.position-transform.position).normalized;
         //aligns rotation to surface
