@@ -23,11 +23,11 @@ public class Planet : MonoBehaviour {
 
     void Awake()
     {
-        
+        //raise terrain
         GameObject child = transform.GetChild(0).gameObject;
         MeshFilter meshFilter = child.GetComponent(typeof(MeshFilter)) as MeshFilter;
         MeshCollider meshCollider = child.GetComponent(typeof(MeshCollider)) as MeshCollider;
-        Mesh mesh = meshFilter.mesh;
+        Mesh mesh = meshFilter!.mesh;
         Vector3[] vertices = mesh.vertices;
         Vector3 pos = transform.position;
         float w = 1000 * pos.x + 100 * pos.y + 10 * pos.z;
@@ -38,16 +38,18 @@ public class Planet : MonoBehaviour {
             vertices[i] = vert.normalized * (vert.magnitude+((value*2-2)*heightMult)/Scale);
         }
         mesh.vertices = vertices;
-        meshCollider.sharedMesh = mesh;
+        meshCollider!.sharedMesh = mesh;
+        
+        //Create crystals
         int num = 20;
         for (int j = 0; j < num; j++)
         {
             Vector3 vert = vertices[Mathf.RoundToInt(j*vertices.Length/num)];
             GameObject interactable = Instantiate(prefab, transform.position + vert*Scale*0.5f + vert.normalized, Quaternion.identity, transform);
-            OrientParent thing = interactable.GetComponent(typeof(OrientParent)) as OrientParent;
             interactable.transform.localScale /= Scale;
-            thing.planet = gameObject;
-            thing.Orient();
+            OrientParent obj = interactable.GetComponent(typeof(OrientParent)) as OrientParent;
+            obj.planet = transform;
+            obj.Orient();
         }
         
         
