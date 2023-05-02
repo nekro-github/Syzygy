@@ -28,4 +28,8 @@ public class orient : MonoBehaviour {
             }
         }
     }
+    public void OnValidate()
+    {
+        Orient();
+    }
 }

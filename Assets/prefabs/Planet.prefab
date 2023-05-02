@@ -113,7 +113,8 @@ MonoBehaviour:
     num: 6.371
     exponent: 6
   Scale: 80
-  prefab: {fileID: 574257017742858801, guid: b9bb55b5fd0fc474eb6aaef363bca544, type: 3}
+  crystalPrefab: {fileID: 574257017742858801, guid: b9bb55b5fd0fc474eb6aaef363bca544, type: 3}
+  rockPrefab: {fileID: 2210394580915263984, guid: abd5018d2a984bc4786cf8296b7a4cae, type: 3}
 --- !u!1 &1954943571056428437
 GameObject:
   m_ObjectHideFlags: 0

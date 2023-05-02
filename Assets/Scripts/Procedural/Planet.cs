@@ -9,7 +9,8 @@ public class Planet : MonoBehaviour {
     public float Scale;
     private float heightMult = 5f;
     private float noiseScale = 7f;
-    public GameObject prefab;
+    public GameObject crystalPrefab;
+    public GameObject rockPrefab;
     
     
     void OnValidate() {
@@ -41,13 +42,25 @@ public class Planet : MonoBehaviour {
         meshCollider!.sharedMesh = mesh;
         
         //Create crystals
-        int num = 20;
-        for (int j = 0; j < num; j++)
+        int numCrystals = 20;
+        for (int j = 0; j < numCrystals; j++)
         {
-            Vector3 vert = vertices[Mathf.RoundToInt(j*vertices.Length/num)];
-            GameObject interactable = Instantiate(prefab, transform.position + vert*Scale*0.5f + vert.normalized, Quaternion.identity, transform);
+            Vector3 vert = vertices[Mathf.RoundToInt(j*vertices.Length/numCrystals)];
+            GameObject interactable = Instantiate(crystalPrefab, transform.position + vert*Scale*0.5f + vert.normalized, Quaternion.identity, transform);
             interactable.transform.localScale /= Scale;
             OrientParent obj = interactable.GetComponent(typeof(OrientParent)) as OrientParent;
+            obj.planet = transform;
+            obj.Orient();
+        }
+        
+        //Create glow rocks
+        int numRocks = 10;
+        for (int j = 0; j < numRocks; j++)
+        {
+            Vector3 vert = vertices[Mathf.RoundToInt((j+0.25f)*vertices.Length/numRocks)];
+            GameObject interactable = Instantiate(rockPrefab, transform.position + vert*Scale*0.5f + vert.normalized, Quaternion.identity, transform);
+            interactable.transform.localScale /= Scale;
+            orient obj = interactable.GetComponent(typeof(orient)) as orient;
             obj.planet = transform;
             obj.Orient();
         }
