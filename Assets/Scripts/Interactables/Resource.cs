@@ -8,6 +8,7 @@ public class Resource : Interactable {
     public override bool interactEvent { get{ return Input.GetKeyDown(interactKey); } }// bool which says if it is being interacted with
 
     public override bool Interact(Interactor interactor) {
+        Destroy(gameObject);
         return true;
     }
 }

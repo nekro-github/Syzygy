@@ -61,7 +61,7 @@ public class UIController : MonoBehaviour {
                 SetRectActive(pauseOverlay, teleportMenuOpen);// set ui elements active or in-active
                 SetRectActive(teleporterMenu, teleportMenuOpen);
                 SetRectActive(crosshair, !teleportMenuOpen);
-                SetRectActive(mainMenuButton, !teleportMenuOpen);
+                SetRectActive(mainMenuButton, teleportMenuOpen);
                 Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;// locks cursor
             }
         }
@@ -117,7 +117,7 @@ public class UIController : MonoBehaviour {
                 SetRectActive(pauseOverlay, teleportMenuOpen);//                                          set ui elements active or in-active
                 SetRectActive(teleporterMenu, teleportMenuOpen);//                                        ^
                 SetRectActive(crosshair, !teleportMenuOpen);//                                            ^
-                SetRectActive(mainMenuButton, !teleportMenuOpen);//                                       ^
+                SetRectActive(mainMenuButton, teleportMenuOpen);//                                       ^
                 Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;//                       locks cursor
             });
 

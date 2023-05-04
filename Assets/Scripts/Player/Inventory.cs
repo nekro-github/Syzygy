@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class Inventory : MonoBehaviour {
+    [HideInInspector]
     public bool hasUnlockedTP = true;
 
     private void Update() {
