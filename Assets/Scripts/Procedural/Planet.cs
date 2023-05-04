@@ -9,6 +9,11 @@ public class Planet : MonoBehaviour {
     public float Scale;
     private float heightMult = 5f;
     private float noiseScale = 7f;
+    public GameObject crystalPrefab;
+    public GameObject rockPrefab;
+    public GameObject quartzPrefab;
+    
+    
     void OnValidate() {
         //handles scaling the object live in the inspector
         if (transform.parent != null) {
@@ -20,10 +25,11 @@ public class Planet : MonoBehaviour {
 
     void Awake()
     {
+        //raise terrain
         GameObject child = transform.GetChild(0).gameObject;
         MeshFilter meshFilter = child.GetComponent(typeof(MeshFilter)) as MeshFilter;
         MeshCollider meshCollider = child.GetComponent(typeof(MeshCollider)) as MeshCollider;
-        Mesh mesh = meshFilter.mesh;
+        Mesh mesh = meshFilter!.mesh;
         Vector3[] vertices = mesh.vertices;
         Vector3 pos = transform.position;
         float w = 1000 * pos.x + 100 * pos.y + 10 * pos.z;
@@ -34,7 +40,44 @@ public class Planet : MonoBehaviour {
             vertices[i] = vert.normalized * (vert.magnitude+((value*2-2)*heightMult)/Scale);
         }
         mesh.vertices = vertices;
-        meshCollider.sharedMesh = mesh;
+        meshCollider!.sharedMesh = mesh;
+        
+        //Create crystals
+        int numCrystals = 20;
+        for (int j = 0; j < numCrystals; j++)
+        {
+            Vector3 vert = vertices[Mathf.RoundToInt(j*vertices.Length/numCrystals)];
+            GameObject interactable = Instantiate(crystalPrefab, transform.position + vert*Scale*0.5f + vert.normalized, Quaternion.identity, transform);
+            interactable.transform.localScale /= Scale;
+            OrientParent obj = interactable.GetComponent(typeof(OrientParent)) as OrientParent;
+            obj.planet = transform;
+            obj.Orient();
+        }
+        
+        //Create glow rocks
+        int numRocks = 10;
+        for (int j = 0; j < numRocks; j++)
+        {
+            Vector3 vert = vertices[Mathf.RoundToInt((j+0.25f)*vertices.Length/numRocks)];
+            GameObject interactable = Instantiate(rockPrefab, transform.position + vert*Scale*0.5f + vert.normalized, Quaternion.identity, transform);
+            interactable.transform.localScale /= Scale;
+            orient obj = interactable.GetComponent(typeof(orient)) as orient;
+            obj.planet = transform;
+            obj.Orient();
+        }
+        
+        //Create red quartz
+        int numQuartz = 5;
+        for (int j = 0; j < numQuartz; j++)
+        {
+            Vector3 vert = vertices[Mathf.RoundToInt((j+0.1f)*vertices.Length/numRocks)];
+            GameObject interactable = Instantiate(quartzPrefab, transform.position + vert*Scale*0.5f + vert.normalized, Quaternion.identity, transform);
+            interactable.transform.localScale /= Scale;
+            OrientParent obj = interactable.GetComponent(typeof(OrientParent)) as OrientParent;
+            obj.planet = transform;
+            obj.Orient();
+        }
+        
     }
     // Makes 3D Perlin Noise to be projected on to the planets by combining axis of 2D Perlin Noises and their opposites
     public static float PerlinNoise3D(float x, float y, float z)

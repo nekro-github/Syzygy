@@ -24,6 +24,9 @@ EditorUserSettings:
       value: 22424703114646680e0b0227036c72111f1958072926337e38271427fb
       flags: 0
     RecentlyUsedScenePath-1:
+      value: 224247031146466f0201026233314603021614396c38273326663936efef073be7e933a6c33f32337717e1351027
+      flags: 0
+    RecentlyUsedScenePath-2:
       value: 22424703114646680e0b0227036c72111f19563f22213229
       flags: 0
     vcSharedLogLevel:
@@ -34,13 +37,9 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
-  m_DesiredImportWorkerCount: 4
-  m_StandbyImportWorkerCount: 2
-  m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1
   m_VCOverwriteFailedCheckoutAssets: 1
   m_VCProjectOverlayIcons: 1
   m_VCHierarchyOverlayIcons: 1
   m_VCOtherOverlayIcons: 1
   m_VCAllowAsyncUpdate: 1
-  m_ArtifactGarbageCollection: 1
