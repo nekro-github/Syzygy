@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 1954943569503058399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -800}
-  m_LocalScale: {x: 80, y: 80, z: 80}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 1954943571056428446}
   - {fileID: 1958629899925045021}
@@ -112,9 +112,10 @@ MonoBehaviour:
   radius:
     num: 6.371
     exponent: 6
-  Scale: 80
+  Scale: 100
   crystalPrefab: {fileID: 574257017742858801, guid: b9bb55b5fd0fc474eb6aaef363bca544, type: 3}
   rockPrefab: {fileID: 2210394580915263984, guid: abd5018d2a984bc4786cf8296b7a4cae, type: 3}
+  quartzPrefab: {fileID: 4790223312697490891, guid: b87c249b98d50804e96548ccfd6395d8, type: 3}
 --- !u!1 &1954943571056428437
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class Planet : MonoBehaviour {
     private float noiseScale = 7f;
     public GameObject crystalPrefab;
     public GameObject rockPrefab;
+    public GameObject quartzPrefab;
     
     
     void OnValidate() {
@@ -65,6 +66,17 @@ public class Planet : MonoBehaviour {
             obj.Orient();
         }
         
+        //Create red quartz
+        int numQuartz = 5;
+        for (int j = 0; j < numQuartz; j++)
+        {
+            Vector3 vert = vertices[Mathf.RoundToInt((j+0.1f)*vertices.Length/numRocks)];
+            GameObject interactable = Instantiate(quartzPrefab, transform.position + vert*Scale*0.5f + vert.normalized, Quaternion.identity, transform);
+            interactable.transform.localScale /= Scale;
+            OrientParent obj = interactable.GetComponent(typeof(OrientParent)) as OrientParent;
+            obj.planet = transform;
+            obj.Orient();
+        }
         
     }
     // Makes 3D Perlin Noise to be projected on to the planets by combining axis of 2D Perlin Noises and their opposites

@@ -809,6 +809,7 @@ MonoBehaviour:
   Scale: 80
   crystalPrefab: {fileID: 574257017742858801, guid: b9bb55b5fd0fc474eb6aaef363bca544, type: 3}
   rockPrefab: {fileID: 2210394580915263984, guid: abd5018d2a984bc4786cf8296b7a4cae, type: 3}
+  quartzPrefab: {fileID: 4790223312697490891, guid: b87c249b98d50804e96548ccfd6395d8, type: 3}
 --- !u!1 &361538997
 GameObject:
   m_ObjectHideFlags: 0
