@@ -12,4 +12,7 @@ public class Inventory : MonoBehaviour {
             hasUnlockedTP = true;
         }
     }
+    public void Pickup(Item item) {
+        print("Picked up: " + item.name);
+    }
 }

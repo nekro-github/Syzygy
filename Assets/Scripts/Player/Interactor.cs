@@ -27,9 +27,15 @@ public class Interactor : MonoBehaviour {
                 if (colliders[i] != null) {
                     //if interact event is true, call interact()
                     Interactable interactable = colliders[i].GetComponent<Interactable>();
-                    if (interactable == null) return;
-                    if (interactable.interactEvent) interactable.Interact(this);
-                    return;
+                    if (interactable != null) {
+                        if (interactable.interactEvent) interactable.Interact(this);
+                        return;
+                    }
+                    interactable = colliders[i].transform.parent.GetComponent<Interactable>();
+                    if (interactable != null) {
+                        if (interactable.interactEvent) interactable.Interact(this);
+                        return;
+                    }
                 }
             }
         }

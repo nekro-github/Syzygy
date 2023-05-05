@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76869965848ae74090e0f8d1abf0abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactKey: e
+  item: {fileID: 11400000, guid: f834a9a8d909c21478af141e116a7e8b, type: 2}
 --- !u!4 &7967044168699419889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6828913800785003677, guid: f83a56034502dd34197ad14264b0d27b, type: 3}
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76869965848ae74090e0f8d1abf0abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactKey: e
+  item: {fileID: 11400000, guid: f834a9a8d909c21478af141e116a7e8b, type: 2}
 --- !u!114 &6405296927050585249 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2164822684971086996, guid: f83a56034502dd34197ad14264b0d27b, type: 3}
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76869965848ae74090e0f8d1abf0abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactKey: e
+  item: {fileID: 11400000, guid: f834a9a8d909c21478af141e116a7e8b, type: 2}
 --- !u!4 &2524952580532017092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6828913800785003677, guid: f83a56034502dd34197ad14264b0d27b, type: 3}
