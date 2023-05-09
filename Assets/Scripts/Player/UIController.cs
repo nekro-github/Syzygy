@@ -22,10 +22,13 @@ public class UIController : MonoBehaviour {
     [HideInInspector]
     public bool teleportMenuOpen;
 
+    [Space]
+    public RectTransform hotbar;
+    private RectTransform hotbarParent;
     void Start() {
         //init
         teleporterMenuItems = new RectTransform[0];
-
+        hotbarParent = hotbar.parent.GetComponent(typeof(RectTransform)) as RectTransform;
         //set inital states of UI
         isPaused = false;
         teleportMenuOpen = false;
@@ -35,11 +38,13 @@ public class UIController : MonoBehaviour {
         crosshair.gameObject.SetActive(true);
         teleporterMenu.gameObject.SetActive(true);
         mainMenuButton.gameObject.SetActive(true);
+
         SetRectActive(pauseOverlay, false);
         SetRectActive(pauseText, false);
-        SetRectActive(crosshair, true);
         SetRectActive(teleporterMenu, false);
         SetRectActive(mainMenuButton, false);
+        SetRectActive(crosshair, true);
+        SetRectActive(hotbarParent, true);
         Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
     }
     void Update() {
@@ -54,14 +59,16 @@ public class UIController : MonoBehaviour {
                 //set ui elements active or in-active
                 SetRectActive(pauseOverlay, isPaused);
                 SetRectActive(pauseText, isPaused);
-                SetRectActive(crosshair, !isPaused);
                 SetRectActive(mainMenuButton, isPaused);
+                SetRectActive(crosshair, !isPaused);
+                SetRectActive(hotbarParent, !isPaused);
             } else {
                 teleportMenuOpen = false;
                 SetRectActive(pauseOverlay, teleportMenuOpen);// set ui elements active or in-active
                 SetRectActive(teleporterMenu, teleportMenuOpen);
-                SetRectActive(crosshair, !teleportMenuOpen);
                 SetRectActive(mainMenuButton, teleportMenuOpen);
+                SetRectActive(crosshair, !teleportMenuOpen);
+                SetRectActive(hotbarParent, !teleportMenuOpen);
                 Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;// locks cursor
             }
         }
@@ -71,8 +78,9 @@ public class UIController : MonoBehaviour {
         teleportMenuOpen = true;
         SetRectActive(pauseOverlay, teleportMenuOpen);// set ui elements active or in-active
         SetRectActive(teleporterMenu, teleportMenuOpen);
-        SetRectActive(crosshair, !teleportMenuOpen);
         SetRectActive(mainMenuButton, !teleportMenuOpen);
+        SetRectActive(crosshair, !teleportMenuOpen);
+        SetRectActive(hotbarParent, !teleportMenuOpen);
         Cursor.lockState = CursorLockMode.None; Cursor.visible = true;// unlocks cursor
 
         //find all unlocked teleporters and make a button on the screen for it
@@ -116,8 +124,9 @@ public class UIController : MonoBehaviour {
                 teleportMenuOpen = false;//                                                               close teleport menu
                 SetRectActive(pauseOverlay, teleportMenuOpen);//                                          set ui elements active or in-active
                 SetRectActive(teleporterMenu, teleportMenuOpen);//                                        ^
+                SetRectActive(mainMenuButton, teleportMenuOpen);//                                        ^
                 SetRectActive(crosshair, !teleportMenuOpen);//                                            ^
-                SetRectActive(mainMenuButton, teleportMenuOpen);//                                       ^
+                SetRectActive(hotbarParent, !teleportMenuOpen);//                                               ^
                 Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;//                       locks cursor
             });
 
