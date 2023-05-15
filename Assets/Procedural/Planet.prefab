@@ -5499,7 +5499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1958629899925045021
 Transform:
   m_ObjectHideFlags: 0
@@ -5557,5 +5557,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd75b8a31b7ce5d45b327d5043cd8f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 1954943569503058399}
-  offsetDown: 0.6
+  planet: {fileID: 1954943569503058396}
+  offsetDown: 0.35

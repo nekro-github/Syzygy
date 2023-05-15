@@ -11,7 +11,7 @@ public class Teleporter : Interactable {
 
     public string Name = "";
     void Start() {
-        if (Name == "" && transform.parent != null) Name = transform.parent.name;
+        if (Name == "" && transform.parent != null) Name = transform.parent.parent.name;
     }
 
 
