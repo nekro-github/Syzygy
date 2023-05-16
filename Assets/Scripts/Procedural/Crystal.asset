@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c391877892c004392922485b7d6482, type: 3}
   m_Name: Crystal
   m_EditorClassIdentifier: 
-  prefab: {fileID: 574257017742858801, guid: b9bb55b5fd0fc474eb6aaef363bca544, type: 3}
+  prefab: {fileID: 7478539628944496256, guid: f83a56034502dd34197ad14264b0d27b, type: 3}
   hotbarItem: {fileID: 21300000, guid: e326fa444376f1a4a8867a1843d06339, type: 3}
   Count: 1

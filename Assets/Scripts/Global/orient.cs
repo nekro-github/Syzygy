@@ -21,7 +21,7 @@ public class orient : MonoBehaviour {
         
         Vector3 ray = (planetPos - pos).normalized;
         RaycastHit hit;
-        if(Physics.Raycast(pos-ray*15, ray, out hit, 30, LayerMask.GetMask(LayerMask.LayerToName(planet.gameObject.layer))))
+        if(Physics.Raycast(pos-ray*15, ray, out hit, 35, LayerMask.GetMask(LayerMask.LayerToName(planet.gameObject.layer))))
         {
             if(hit.transform.parent.name == planet.name) {
                 transform.position+=ray*(hit.distance-15+transform.lossyScale.y*offsetDown);

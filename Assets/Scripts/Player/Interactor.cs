@@ -25,7 +25,7 @@ public class Interactor : MonoBehaviour {
             //loops through all currently in contact with interactor
             for (int i = 0; i < colliders.Length; i++) {
                 if (colliders[i] != null) {
-                    
+                    print(colliders[i].name);
                     //if interact event is true, call interact()
                     Interactable interactable = colliders[i].GetComponent<Interactable>();
                     if (interactable != null) {

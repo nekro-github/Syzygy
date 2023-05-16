@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrientParent : MonoBehaviour
-{
+public class OrientParent : MonoBehaviour {
     public orient[] children;
     public Transform planet;
     public float offsetDown = 0.15f;

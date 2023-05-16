@@ -22,9 +22,8 @@ public class Planet : MonoBehaviour {
             transform.localScale = new Vector3(Scale,Scale,Scale);
         }
     }
-    void Awake() {
-        if(gameObject.name=="Earth")Generate();
-    }
+    void Awake() { if(gameObject.name=="Earth") Generate(); }//earth is not randomly generated
+
     public void Generate()
     {
         //raise terrain
@@ -57,7 +56,7 @@ public class Planet : MonoBehaviour {
         }
         
         //Create glow rocks
-        int numRocks = 10;
+        int numRocks = 15;
         for (int j = 0; j < numRocks; j++)
         {
             Vector3 vert = vertices[Mathf.RoundToInt((j+0.25f)*vertices.Length/numRocks)];
@@ -69,7 +68,7 @@ public class Planet : MonoBehaviour {
         }
         
         //Create red quartz
-        int numQuartz = 5;
+        int numQuartz = 10;
         for (int j = 0; j < numQuartz; j++)
         {
             Vector3 vert = vertices[Mathf.RoundToInt((j+0.1f)*vertices.Length/numRocks)];
