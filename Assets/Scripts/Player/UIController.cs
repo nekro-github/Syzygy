@@ -103,6 +103,8 @@ public class UIController : MonoBehaviour {
         }
         if (teleporterMenuItems.Length > count) {for(int i = count; i < teleporterMenuItems.Length; i++) { Destroy(teleporterMenuItems[i].gameObject); }}//delete other menu items that are no longer used
         teleporterMenuItems = temp;
+        teleporterScrollViewportContent.sizeDelta = new Vector2(-20,30*count-320);
+        //teleporterScrollViewportContent.rect.height=320-30*count;
 
         count = 0;//re-using this variable to keep track of index
         for(int i = 0; i < teleporters.Length; i++) {

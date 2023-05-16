@@ -22,8 +22,10 @@ public class Planet : MonoBehaviour {
             transform.localScale = new Vector3(Scale,Scale,Scale);
         }
     }
-
-    void Awake()
+    void Awake() {
+        if(gameObject.name=="Earth")Generate();
+    }
+    public void Generate()
     {
         //raise terrain
         GameObject child = transform.GetChild(0).gameObject;

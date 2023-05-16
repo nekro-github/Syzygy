@@ -36,6 +36,7 @@ public class Teleporter : Interactable {
     public void teleportTo(Transform obj) {
         // successfully teleported
         obj.position = transform.position;
+        //print(obj.name);
         
         //if obj has player script
         var player = obj.GetComponent<PlayerController>();

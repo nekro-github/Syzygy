@@ -19,9 +19,4 @@ public class OrientParent : MonoBehaviour
             }
         }
     }
-
-    public void OnValidate()
-    {
-        Orient();
-    }
 }
