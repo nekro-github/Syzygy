@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour {
             Vector3 forward =cam.forward.normalized;
             Vector3 right =(cam.rotation * cam.right).normalized;
             RaycastHit hit;
-            if(Physics.Raycast(cam.position, forward, out hit, 10, ((LayerMask) ~0))) {
+            if(Physics.Raycast(cam.position, forward, out hit, 10, ((LayerMask)(~0 - LayerMask.GetMask("player"))) )) {
                 Transform placed = Instantiate(hotBar[selectedSlot].prefab).transform;
                 hotBar[selectedSlot].Count--;
                 updateHotbar();

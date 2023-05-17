@@ -1377,7 +1377,7 @@ GameObject:
   - component: {fileID: 382834733}
   - component: {fileID: 382834732}
   - component: {fileID: 382834731}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2248,7 +2248,7 @@ GameObject:
   - component: {fileID: 511411365}
   - component: {fileID: 511411367}
   - component: {fileID: 511411366}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -7016,7 +7016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1642974645}
   - component: {fileID: 1642974646}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: other collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13124,7 +13124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2100304860}
   - component: {fileID: 2100304861}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: feet collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
